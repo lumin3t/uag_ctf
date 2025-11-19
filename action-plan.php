@@ -75,7 +75,6 @@
             <div class="flag"><strong>SECRET ACCESS GRANTED:</strong> flag{F0r3st_4dm1n_bYP4s5_2024}</div>
 
         </div>
-        
         <div class="button-group">
             <a href="index.php" class="button">Return to Portal</a>
             <a href="logout.php" class="button">Log Off System</a>
