@@ -72,7 +72,7 @@
                 Document Access Log: uag-admin (Read/Write)
             </p>
 
-            <div class="flag"><strong>SECRET ACCESS GRANTED:</strong> UAC{F0r3st_4dm1n_bYP4s5_2024}</div>
+            <div class="flag"><strong>SECRET ACCESS GRANTED:</strong> flag{F0r3st_4dm1n_bYP4s5_2024}</div>
 
         </div>
         
