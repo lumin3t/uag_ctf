@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password 
+      # Config for db
+      - MYSQL_DATABASE=uag_db
+    depends_on:
+      db:
+        condition: service_healthy
+    # Add startup script to wait for MySQL
+    command: >
+      bash -c "
+      while ! curl -s db:3306 > /dev/null; do
+        echo 'Waiting for MySQL...'
+        sleep 2
+      done
+      echo 'MySQL is ready!'
+      apache2-foreground"
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: uag_db
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-ppassword"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
