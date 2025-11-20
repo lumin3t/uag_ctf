@@ -49,9 +49,8 @@ $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT username FROM users WHERE
         </div>
 
         <p style="margin-top: 30px; font-size: 11px; color: #808080;">
-            *Adherent accounts cannot access the Master Plan.
+            *Adherent (user) accounts cannot access the Master Plan.
         </p>
-        <!--Admins can access the plans in /action-plan.php section-->
     </div>
 </body>
 </html>
